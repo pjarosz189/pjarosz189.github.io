@@ -1,28 +1,48 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<body>
+  <head>
+    <meta charset="utf-8">
 
-<h1>My First Heading</h1>
+    <title>My Moltin App</title>
+    <meta name="description" content="My Moltin App">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script type="text/javascript" src="http://cdn.jsdelivr.net/jquery/1.7.2/jquery.min.js"></script>
+    <!-- <script type="text/javascript" src="js/moltin.js"></script> -->
+    <script type="text/javascript" src="https://js.moltin.com/v1"></script>
+  </head>
 
-<p>My first paragraph.</p>
+  <body>
 
-  <script src="https://js.moltin.com/v1">
-  
-    
-  var moltin = new Moltin({publicId: 'wBYnPDwBI4pu2nWKorqUKMAE16xw9RHDbdF2Vp6Olc'});
+    <div id="main">
 
-moltin.Authenticate(function() {
-  var product = moltin.product.Find({slug: 'a'});
-  //var item = moltin.cart.Insert(product[0].id, 1, null);
-    // Add further calls here
-  //var cart = moltin.cart.Contents();
-  console.log(product);
-  console.log("printed");
-});
-  
-  </script>
+      <div class="ready">
+        <h1>You're ready to use Moltin!</h1>
+        <p>You can now make API calls to the Moltin API, why not try getting your live products with the code below?</p>
+        <pre><code class="javascript">
+  moltin.Product.Search({status: 1}, function(products) {
+    console.log(products);
+  });
+        </code></pre>
+      </div>
 
-     
-  
-</body>
+      <p>Read the documentation and start building your JavaScript app:</p>
+
+      <ul>
+        <li><a href="https://moltin.com/getting-started/js">Moltin JavaScript Quickstart Guide</a></li>
+        <li><a href="http://docs.moltin.com">Moltin API Documentation</a></li>
+      </ul>
+
+    </div>
+
+    <script type="text/javascript">
+      var moltin = new Moltin({publicId: 'wBYnPDwBI4pu2nWKorqUKMAE16xw9RHDbdF2Vp6Olc', notice: function(type, msg) { $('<div class="'+type+'">'+msg+'</div>').prependTo($('body')); } });
+      moltin.Authenticate(function() {
+        $('<div class="success">Authentication successful</div>').prependTo($('body'));
+        $('.ready').show();
+        // API calls here...
+      });
+    </script>
+  </body>
 </html>
