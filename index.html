@@ -39,7 +39,7 @@
 
     <script type="text/javascript">
 
-      var moltin = new Moltin({publicId: 'YOUR_PUBLIC_API_KEY', notice: function(type, msg) { $('<div class="'+type+'">'+msg+'</div>').prependTo($('body')); } });
+      var moltin = new Moltin({publicId: 'wBYnPDwBI4pu2nWKorqUKMAE16xw9RHDbdF2Vp6Olc', notice: function(type, msg) { $('<div class="'+type+'">'+msg+'</div>').prependTo($('body')); } });
       moltin.Authenticate(function() {
         $('<div class="success">Authentication successful</div>').prependTo($('body'));
         $('.ready').show();
