@@ -12,6 +12,8 @@
   var moltin = new Moltin({publicId: 'wBYnPDwBI4pu2nWKorqUKMAE16xw9RHDbdF2Vp6Olc'});
 
 moltin.Authenticate(function() {
+  var product = moltin.product.Find({slug: 'a'});
+  var item = moltin.cart.Insert(product[0].id, 1, null);
     // Add further calls here
   var cart = moltin.cart.Contents();
   console.log(cart);
