@@ -1,58 +1,24 @@
-
-<!doctype html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
+<body>
 
-    <title>My Moltin App</title>
-    <meta name="description" content="My Moltin App">
-    <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <script type="text/javascript" src="http://cdn.jsdelivr.net/jquery/1.7.2/jquery.min.js"></script>
-    <!-- <script type="text/javascript" src="js/moltin.js"></script> -->
-    
-  </head>
+<h1>My First Heading</h1>
 
-  <body>
+<p>My first paragraph.</p>
 
-    <div id="main">
-
-      <div class="ready">
-        <h1>You're ready to use Moltin!</h1>
-        <p>You can now make API calls to the Moltin API, why not try getting your live products with the code below?</p>
-        <pre><code class="javascript">
+  <script src="https://js.moltin.com/v1">
   
-        </code></pre>
-      </div>
+  var moltin = new Moltin({publicId: 'wBYnPDwBI4pu2nWKorqUKMAE16xw9RHDbdF2Vp6Olc'});
 
-      <p>Read the documentation and start building your JavaScript app:</p>
-
-      <ul>
-        <li><a href="https://moltin.com/getting-started/js">Moltin JavaScript Quickstart Guide</a></li>
-        <li><a href="http://docs.moltin.com">Moltin API Documentation</a></li>
-      </ul>
-
-    </div>
-
-    <script src="https://js.moltin.com/v1" type="text/javascript">
-
-      //var moltin = new Moltin({publicId: 'wBYnPDwBI4pu2nWKorqUKMAE16xw9RHDbdF2Vp6Olc', notice: function(type, msg) { $('<div class="'+type+'">'+msg+'</div>').prependTo($('body')); } });
-      //moltin.Authenticate(function() {
-      //  $('<div class="success">Authentication successful</div>').prependTo($('body'));
-    //    $('.ready').show();
-  //      // API calls here...
-//
-      //});
-      
-   const Moltin = MoltinGateway({
-  client_id: 'wBYnPDwBI4pu2nWKorqUKMAE16xw9RHDbdF2Vp6Olc'
-  });
-      
-      const products = Moltin.Products.All().then((products) => {
-  console.log(products);
+moltin.Authenticate(function() {
+    // Add further calls here
+  var cart = moltin.cart.Contents();
+  console.log(cart);
 });
+  
+  </script>
 
-    </script>
-  </body>
+     
+  
+</body>
 </html>
