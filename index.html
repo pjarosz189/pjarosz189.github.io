@@ -13,10 +13,11 @@
 
 moltin.Authenticate(function() {
   var product = moltin.product.Find({slug: 'a'});
-  var item = moltin.cart.Insert(product[0].id, 1, null);
+  //var item = moltin.cart.Insert(product[0].id, 1, null);
     // Add further calls here
-  var cart = moltin.cart.Contents();
-  console.log(cart);
+  //var cart = moltin.cart.Contents();
+  console.log(product);
+  console.log("printed");
 });
   
   </script>
