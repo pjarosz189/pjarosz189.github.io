@@ -39,13 +39,21 @@
 
     <script type="text/javascript">
 
-      var moltin = new Moltin({publicId: 'wBYnPDwBI4pu2nWKorqUKMAE16xw9RHDbdF2Vp6Olc', notice: function(type, msg) { $('<div class="'+type+'">'+msg+'</div>').prependTo($('body')); } });
-      moltin.Authenticate(function() {
-        $('<div class="success">Authentication successful</div>').prependTo($('body'));
-        $('.ready').show();
-        // API calls here...
-
-      });
+      //var moltin = new Moltin({publicId: 'wBYnPDwBI4pu2nWKorqUKMAE16xw9RHDbdF2Vp6Olc', notice: function(type, msg) { $('<div class="'+type+'">'+msg+'</div>').prependTo($('body')); } });
+      //moltin.Authenticate(function() {
+      //  $('<div class="success">Authentication successful</div>').prependTo($('body'));
+    //    $('.ready').show();
+  //      // API calls here...
+//
+      //});
+      
+   const Moltin = MoltinGateway({
+  client_id: 'wBYnPDwBI4pu2nWKorqUKMAE16xw9RHDbdF2Vp6Olc'
+  });
+      
+      const products = Moltin.Products.All().then((products) => {
+  console.log(products);
+});
 
     </script>
   </body>
